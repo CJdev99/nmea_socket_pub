@@ -1,3 +1,7 @@
-# bad_chicken_snowplow
+ROS package that reads NMEA sentences over a specified TCP socket stream.
 
-Includes launch files, custom ROS nodes used on 2022-2023 snowplow project
+Currently supports GGA and GST sentences.
+
+Requires pynmea2 installed, developed for ROS noetic
+
+Publishes to the /fix topic with /NavSatFix message type
