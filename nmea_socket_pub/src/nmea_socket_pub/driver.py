@@ -193,3 +193,24 @@ if __name__ == "__main__":
             gps.nmea_stream()
         except KeyboardInterrupt:
             gps.preempt()
+
+"""
+TODO: remove open() & close(), change init to this:
+def __init__(self, address, port, timeout):
+    self._preempted = False
+    self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    self._sock.connect((address, port))
+    self._sock.settimeout(timeout)
+    rospy.loginfo('Connecting to address: ' + address + ' port: ' + str(port))
+
+    self.lat = 0
+    self.long = 0
+    self.alt = 0
+    self.heading = 0
+    self.covariance = 0
+    self.covariance_type = 2
+    self.fixStatus = 0
+
+    self.navSatPub = rospy.Publisher('~fix', NavSatFix, queue_size=1)
+    self.headingPub = rospy.Publisher('~heading', Float64, queue_size=1)
+"""
